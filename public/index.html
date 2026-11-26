@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c17">
+  <meta name="description" content="LAST COMMUNITY dashboard for managing your gaming community on Discord.">
+  <title>LAST COMMUNITY · Community Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main id="login-screen" class="login-screen">
+    <div class="login-art" role="img" aria-label="LAST COMMUNITY artwork"></div>
+    <div class="login-content">
+      <div class="login-logo"><img src="/assets/last-community.jpg" alt="LAST COMMUNITY"></div>
+      <p class="eyebrow"><span class="live-dot"></span> Gaming community · One place</p>
+      <h1>Gaming is better<br><span>with your crew.</span></h1>
+      <p class="login-copy">Your dashboard for games, roles, RP gangs and voice rooms. Everything organised your way.</p>
+      <a class="button button-discord button-wide" href="/auth/login"><span class="discord-mark">◉</span> Sign in with Discord <i data-lucide="arrow-up-right"></i></a>
+      <p class="login-note"><i data-lucide="shield-check"></i> Secure sign-in · Manage Server permission required for settings</p>
+      <div id="login-error" class="login-error hidden"></div>
+      <div class="login-bottom"><span>LAST COMMUNITY</span><span>EST. 2024</span></div>
+    </div>
+    <div class="login-side-note"><span>YOUR PEOPLE</span><span>YOUR GAME</span><span>YOUR SPACE</span></div>
+  </main>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="LAST COMMUNITY home">
+        <span class="brand-mark"><img src="/assets/last-community.jpg" alt=""></span>
+        <span class="brand-word"><strong>LAST</strong><small>COMMUNITY</small></span>
+        <span class="brand-spark"><i data-lucide="sparkles"></i></span>
+      </a>
+      <div class="server-select-wrap">
+        <span class="field-caption">Workspace</span>
+        <label class="server-select-label"><i data-lucide="chevrons-up-down"></i><select id="server-select" aria-label="Choose a Discord server"></select></label>
+      </div>
+      <div class="sidebar-rule"></div>
+      <span class="nav-caption">Main menu</span>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></button>
+        <button class="nav-link" data-page="games"><i data-lucide="gamepad-2"></i><span>Games &amp; Roles</span><b id="game-count" class="nav-count">0</b></button>
+        <button class="nav-link" data-page="gangs"><i data-lucide="shield"></i><span>RP Gangs</span></button>
+        <button class="nav-link" data-page="voice"><i data-lucide="headphones"></i><span>Voice Rooms</span><b id="voice-count" class="nav-count">0</b></button>
+        <button class="nav-link" data-page="welcome"><i data-lucide="party-popper"></i><span>Welcome &amp; Members</span></button>
+        <button class="nav-link" data-page="appearance"><i data-lucide="panels-top-left"></i><span>Appearance</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="bot-status"><span class="status-orb"></span><span><strong id="sidebar-bot-status">Bot online</strong><small>LAST COMMUNITY BOT</small></span><i data-lucide="radio"></i></div>
+        <div class="profile-row"><img id="profile-avatar" src="/assets/last-community.jpg" alt=""><span class="profile-name"><strong id="profile-name">Community member</strong><small id="profile-handle">@discord</small></span><button class="icon-button" data-action="logout" aria-label="Sign out" title="Sign out"><i data-lucide="log-out"></i></button></div>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Community</span><i data-lucide="chevron-right"></i><strong id="page-crumb">Overview</strong></div>
+        <div class="topbar-actions"><span id="guild-status" class="connection-pill"><span class="status-orb"></span> Connected</span><button class="icon-button mobile-menu" data-action="menu" aria-label="Open menu"><i data-lucide="menu"></i></button><button class="user-chip" data-action="profile"><img id="top-avatar" src="/assets/last-community.jpg" alt=""><span id="top-name">LAST PLAYER</span><i data-lucide="chevron-down"></i></button></div>
+      </header>
+      <main id="page-content" class="page-content"></main>
+      <footer class="app-footer"><span>LAST COMMUNITY <span class="footer-star">✦</span> A space for your friends</span><span id="footer-server">Dashboard</span></footer>
+    </div>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+</body>
+</html>
